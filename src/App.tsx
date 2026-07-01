@@ -49,7 +49,6 @@ export default function App() {
   const [activeService, setActiveService] = useState<string>('01');
   const [activeAchievement, setActiveAchievement] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [emailSubmitted, setEmailSubmitted] = useState(false);
 
   // For scroll effects (like revealing elements)
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -184,12 +183,6 @@ export default function App() {
     ? projects
     : projects.filter(p => p.category === activeCategory);
 
-  const handleContactSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setEmailSubmitted(true);
-    setTimeout(() => setEmailSubmitted(false), 5000);
-  };
-
   // Determine visibility states for header
   const isNavbarVisible = scrollY > 260; // Show navbar when scrolling past splash
   const isNavbarShrunk = scrollY > 600; // Shrink navbar to 70% width when scrolling further
@@ -297,10 +290,7 @@ export default function App() {
         />
 
         {/* Contact & Booking Section */}
-        <Contact
-          emailSubmitted={emailSubmitted}
-          handleContactSubmit={handleContactSubmit}
-        />
+        <Contact />
       </main>
 
       {/* Footer */}
