@@ -48,32 +48,31 @@ export default function Projects({
           {filteredProjects.map((project, index) => (
             <div 
               key={project.id} 
-              className={`portfolio-card ${project.aspect} reveal-on-scroll`}
-              style={{ animationDelay: `${index * 100}ms` }}
+              className={`portfolio-card process-step ${project.aspect} reveal-on-scroll`}
+              style={{ animationDelay: `${index * 100}ms`, padding: 'var(--space-4)', gap: 0 }}
             >
-              <div className="portfolio-img-container">
-                <img 
-                  src={project.imageUrl} 
-                  alt={project.title} 
-                  className="portfolio-img"
-                  loading="lazy"
-                />
-                <div className="portfolio-card-scrim"></div>
-                <div className="portfolio-card-hover-icon" style={{ borderRadius: 'var(--radius-pill)', width: 'auto', height: 'auto', padding: '16px 24px' }}>
-                  <span>VIEW SPECS</span>
+              <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+                <h3 className="process-step-title">{project.title}</h3>
+                
+                <div className="capabilities-tags">
+                  <span className="capability-tag">{project.category}</span>
+                  <span className="capability-tag">{project.client}</span>
+                  <span className="capability-tag">{project.year}</span>
                 </div>
-              </div>
-              
-              <div className="portfolio-card-details">
-                <div className="portfolio-card-meta">
-                  <span className="portfolio-card-category">{project.category}</span>
-                  <span className="portfolio-card-divider">//</span>
-                  <span className="portfolio-card-client">{project.client}</span>
+
+                <div className="portfolio-img-container" style={{ margin: 'var(--space-3) 0', border: '2px solid var(--text-primary)', borderRadius: '12px', flexGrow: 1, minHeight: '200px' }}>
+                  <img 
+                    src={project.imageUrl} 
+                    alt={project.title} 
+                    className="portfolio-img"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    loading="lazy"
+                  />
                 </div>
-                <div className="portfolio-card-bottom" style={{ display: 'block', marginTop: '4px' }}>
-                  <h3 className="portfolio-card-title" style={{ fontSize: '1.25rem', marginBottom: '8px' }}>{project.title}</h3>
-                  <p style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>{project.description}</p>
-                </div>
+
+                <p className="process-step-desc">
+                  {project.description}
+                </p>
               </div>
             </div>
           ))}
