@@ -59,8 +59,6 @@ export default function App() {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       setScrollY(currentScrollY);
-      
-      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });

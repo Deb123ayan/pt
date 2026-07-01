@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function Experience() {
   return (
     <section id="experience" className="experience-section section-padding" style={{ borderTop: '1px solid var(--border-subtle)' }}>
